@@ -1,0 +1,41 @@
+     let ary1=[1,2,1,2,1,23,4,1,23,24,4,5,2,3,6,7];
+     //º¯Êý
+//filter
+    //º¯Êý
+    function ff(item) {
+        var ary=[];
+        for(var i=0;i<ary1.length;i++){
+            if(!ary.includes(item[i])){
+                ary.push(item[i])
+            }
+        }
+        return ary
+    }
+     console.log(ff(ary1));
+
+    var ary2=ary1.filter(function (item,index) {
+        return !ary1.slice(0,index).includes(item)
+    });
+     console.log(ary2);
+
+
+     for(var i=0;i<ary1.length;i++){
+         if(ary1.indexOf(ary1[i])==!ary1.lastIndexOf(ary1[i])){
+             ary1.splice(i,1);
+             i--;
+         }
+     }
+     console.log(ary1);
+.
+
+Array.prototype.remove=function () {
+    var obj={},ary=[];
+    this.forEach(function (item) {
+        obj[item]=item;
+    })
+    for(var key in obj){
+        ary.push(obj[key])
+    }
+    return ary;
+}
+console.log([1,1,1,2,2,2,3,5,5,5,6,8,8,9].remove());

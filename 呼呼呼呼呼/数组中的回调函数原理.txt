@@ -1,0 +1,79 @@
+    //函数当做参数，叫做回调函数
+    //例如：数组中的很多方法，是传进去一个函数去执行的
+    var ary=[1,2,3,5,6];
+    //第一个参数是一个函数，第二个参数是改变前面函数this的
+    Array.prototype.forEach(function (fn,obj) {
+//        //this表示 数组实例
+    //循环数组让函数fn，依次执行执行的时候通过call改变fn的this，给fn传三个参数，（当前项this[i],i索引，this，原数组this）
+        for(var i=0;i<this.length;i++){
+            fn.call(obj,this[i],i,this)
+        }
+    });
+
+        ary.forEach(function (item,index,input) {  //不需要返回值
+//            //第二个参数是改变前面函数this
+            console.log(this);
+        },ary)
+
+
+
+    Array.prototype.map=function (fn,obj) {
+//   //循环数组让函数fn，依次执行执行的时候通过call改变fn的this，给fn传三个参数，
+//     //（当前项this[i],i索引，this，原数组this），将返回值push到ary中
+//    //有返回值，返回值：fn每次执行的结果组成的新数组，
+        var ary=[];
+       for(var i=0;i<this.length;i++){
+           ary.push(fn.call(obj,this[i],i,this))
+       }
+       return ary;
+    }
+  var a=ary.map(function (item,index,input) {
+        return item+index
+    })
+    console.log(a);
+
+
+
+
+
+//    Array.position.find=function (fn,obj) {
+//    //循环数组让函数fn，依次执行执行的时候通过call改变fn的this，给fn传三个参数，
+//     //（当前项this[i],i索引，this，原数组this)一直到fn的返回值是turn的时候停止循环，返回当前项this[i]
+//        for (var i=0;i<this.length;i++){
+//            if(fn.call(obj,this[i],i,input)){
+//                return this[i];//返回当前项
+//            }
+//        }
+//    };
+//    var a=Array.prototype.find=(function (item,index,input) {  //找到的结果为turn，就返回  ,返回当前项
+//        console.log(item);
+//        return item===3;
+//    });
+//    console.log(a);
+//
+//    Array.position.findIndex=function (fn,obj) {
+//        //循环数组让函数fn，依次执行执行的时候通过call改变fn的this，给fn传三个参数，
+//        // （当前项this[i],i索引，this，原数组this)一直到fn的返回值是turn的时候停止循环，返回当前项索引[i]
+//        for (var i=0;i<this.length;i++){
+//            if(fn.call(obj,this[i],i,input)){
+//                return [i];//返回当前项索引
+//            }
+//        }
+//    };
+    Array.prototype.filter=function (fn,obj) {
+        //循环数组让函数fn，依次执行执行的时候通过call改变fn的this，给fn传三个参数，
+        // （当前项this[i],i索引，this，原数组this），将返回值是turn的对应的原数组this的那一项this[i],push到ary中
+        //返回值是新的数组
+        var ary=[];
+        for(var i=0;i<this.length;i++){
+            if(fn.call(obj.this[i],i,this)){
+                ary.push(this[i])
+            }
+        }
+        return ary;
+    }
+    var a=ary.find(function (item,index,input) {
+        console.log(item);
+        return item>3
+    });
+    console.log(a);

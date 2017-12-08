@@ -1,0 +1,37 @@
+    //检测数据额类型
+
+//console.log(typeof (1));
+
+//    function sum(fn) {
+//        return fn.constructor.name;
+//        return Array.prototype.toString.call(fn)
+//    }
+//console.log(sum(1, 2, 3));
+
+
+//    var obj={a:"哈哈",b:12};
+//
+//    var aa=new Object;
+//
+//console.log(obj instanceof Object);
+
+
+    //最大值
+//    var ary=[1,2,3,5,6,7,8];
+//console.log(eval("Math.max(" + ary + ")"));
+//console.log(Math.max.apply(null, ary));
+
+
+
+////    //json
+//    var dataObj=[{"a":"哈哈","b":12}];
+////var dataStr='[{"name":"a","age":2},{"name":"b","age":12},{"name":"c","age":22},{"name":"d","age":32}]';
+//////对象转字符串
+////console.log(JSON.stringify(dataObj));
+//////将字符串转对象
+//console.log(JSON.stringify(dataStr));
+
+//    var s='{"name":"a","age":12}';
+//console.log(eval("(" + s + ")"));
+//var ff=Function("return"+s);
+//console.log(ff());

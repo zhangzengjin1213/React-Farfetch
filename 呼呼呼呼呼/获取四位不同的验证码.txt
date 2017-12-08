@@ -1,0 +1,13 @@
+    let str="abcdefghigklmnopqrstuvwxyz"+"0123456789"+"abcdefghigklmnopqrstuvwxyz".toLocaleUpperCase();
+ let code=document.getElementById("code");
+ let chang=document.getElementById("chang");
+
+function ff() {
+    let s="";
+    for (let i=0;i<4;i++){
+        let b=Math.round(Math.random()*61);
+        s+=str[b];
+        code.innerHTML=s;
+    }
+}
+ chang.onclick=ff

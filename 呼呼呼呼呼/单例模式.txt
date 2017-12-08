@@ -1,0 +1,15 @@
+    function createPerson(name,age,can) {
+        var person = {};
+        person.name = name;
+        person.age = age;
+        person.can=function () {
+            console.log("I can do"+can);
+        };
+        return person;
+    }
+    var person1=createPerson("–ª…‹∑Â", 18, "js");
+    var person2=createPerson("Õı—ß≥¨", 28, "CSS");
+    var person3=createPerson("◊ÛÓ»", 38, "HTML");
+    console.log(person1);
+    console.log(person2);
+    console.log(person3);

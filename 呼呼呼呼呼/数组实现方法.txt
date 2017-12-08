@@ -1,0 +1,45 @@
+    //首位增加，删除，最后，增加最后
+    var a=[1,2,3];
+Array.prototype.unshift=function () {
+    var str="";var ary=null;
+    for(var i=0;i<arguments.length;i++){
+        str+=arguments[i]+",";
+    }
+    ary=eval("["+str+this+"]");
+    for(var k=0;k<ary.length;k++){
+        this[k]=ary[k]
+    }
+    return ary.length;
+};
+    console.log(a.unshift(20, 3));
+    console.log(a);
+
+
+
+    Array.prototype.push=function () {
+        for(var i=0;i<arguments.length;i++){
+            this[this.length]=arguments[i];
+        }
+        return this.length;
+    }
+    console.log(a.push(8, 9));
+    console.log(a);
+
+    Array.prototype.pop=function () {
+        var num=this[this.length-1];
+        this.length--;
+        return num;
+    }
+    console.log(a.pop());
+    console.log(a);
+
+Array.prototype.shift=function () {
+    var num=this[0];
+    for(var i=1;i<this.length;i++){
+        this[i-1]=this[i];
+    }
+    this.length--;
+    return num
+}
+    console.log(a.shift());
+    console.log(a);
